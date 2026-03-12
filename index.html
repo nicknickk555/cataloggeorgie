@@ -537,6 +537,18 @@
       Adjust fill levels (50%, 75%, 100%) and experience the difference live.
     </p>
   </div>
-
+<!-- Modal -->
+<div id="ruleModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6);">
+  <div style="background:#fff; margin:10% auto; padding:20px; border-radius:8px; width:80%; max-width:800px;">
+    <span class="close" style="float:right; font-size:28px; cursor:pointer;">&times;</span>
+    <div id="plot50"></div>
+  </div>
+</div>
   <footer class="footer">📌 UNITED ROOT — Venturi Carpet Technology. Page 13.</footer>
 </section>
+<!-- Подключение Plotly и внешнего JS -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="plot50.js"></script>
+</body>
+</html>
+
