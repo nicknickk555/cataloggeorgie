@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Venturi Carpet Technology (VCG) — Technical Overview</title>
+<style>
+  html { scroll-behavior: smooth; }
+  body { 
+    font-family: Arial, sans-serif; 
+    background: #f7fbff; 
+    color: #0b2a4a; 
+    padding: 40px; 
+    line-height: 1.6; 
+    counter-reset: chapter; /* общий счётчик глав */
+  }
+
+  .chapter { margin-bottom: 60px; counter-reset: subchapter; }
+
+  .chapter h2 {
+    counter-increment: chapter;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #109c5d;
+    border-bottom: 2px solid #109c5d;
+    padding-bottom: 6px;
+  }
+
+  .chapter h2::before {
+    content: "Chapter " counter(chapter) ": ";
+    font-weight: bold;
+    color: #0b2a4a;
+  }
+
+  .subchapter h3::before { 
+    counter-increment: subchapter; 
+    content: counter(chapter) "." counter(subchapter) " "; 
+    font-weight: bold; 
+  }
+
+  .formula, .diagram, .datatable { 
+    margin: 20px 0; 
+    padding: 10px; 
+    background: #eef6ff; 
+    border: 1px dashed #109c5d; 
+    font-family: "Courier New", monospace; 
+  }
+
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 10px 0; 
+    font-size: 14px; 
+  }
+
+  table th, table td { 
+    border: 1px solid #ccc; 
+    padding: 6px 10px; 
+    text-align: left; 
+  }
+
+  table th { 
+    background: #109c5d; 
+    color: #fff; 
+    font-weight: bold; 
+  }
+
+  table tr:nth-child(even) { background: #f2f9f6; } 
+
+  table caption { 
+    caption-side: top; 
+    text-align: left; 
+    font-weight: bold; 
+    margin-bottom: 8px; 
+    color: #0b2a4a; 
+  }
+
+  /* TOC styles */
+  #toc {
+    background: #e6f2ff;
+    border: 2px solid #109c5d;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+  }
+  #toc h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #0b2a4a;
+    text-align: center;
+    font-weight: bold;
+  }
+  #toc ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  #toc li { margin: 8px 0; }
+  #toc a {
+    text-decoration: none;
+    color: #109c5d;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  #toc a:hover {
+    color: #0b2a4a;
+    text-decoration: underline;
+  }
+</style>
+<!-- MathJax для формул -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+
+<!-- Title Page -->
+<div class="title-page">
+  <h1>Venturi Carpet Technology (VCG)</h1>
+  <h2>Predictable Root Architecture — Technical Overview</h2>
+  <div class="subtitle">
+    <p><em>Engineering the Microclimate of Roots</em></p>
+    <p><em>Geometry as a Living Instrument</em></p>
+  </div>
+  <div class="info">
+    <p><b>Author:</b> Nick Kuprin</p>
+    <p><b>Contact:</b>                                                                                                                              <a href="mailto:nicknickk555@gmail.com"                                                                                   style="display:inline-block; background:#eef6ff; padding:6px 10px; border-radius:6px; color:#109c5d; font-weight:bold; text-decoration:none;">
+      ✉️ nicknickk555@gmail.com
+    </a>
+  </p>
+    <p><b>Date:</b> March 2026</p>
+    <p><b>Location:</b> Kiev, Ukraine</p>
+  </div>
+</div>
+
+<!-- Preface -->
+<div id="preface">
+  <h1>Preface</h1>
+  <p>
+    This document presents the raw structural framework of Venturi Carpet Technology (VCG). 
+    Each chapter is organized with formulas, tables, and diagram placeholders, 
+    highlighting the systematic approach behind the work. 
+    Further explanations will involve specific numerical data for real plants and cultivation conditions. 
+    The mechanical transmission of such information requires significant time and effort, 
+    underscoring that this is professional work and will benefit from feedback in evaluating the material. 
+    What are your thoughts on how best to approach the next level of detail?
+  </p>
+</div>
+
+<!-- Abstract -->
+<div class="abstract">
+  <h3>Abstract</h3>
+  <p>
+    This technical overview introduces <b>Venturi Carpet Technology (VCG)</b> as a novel approach to root cultivation, transforming random air‑pruning into a predictable and controllable process. By engineering the microclimate of roots through geometric design, VCG establishes a framework where sidewall profiles, hydrothermal spikes, and bevel angles act as instruments of cultivation rather than sources of variability.
+  </p>
+  <p>
+    The document outlines the theoretical basis, key formulas, and structural parameters of VCG, followed by comparative analysis against standard containers. Special emphasis is placed on the <b>predictability of drying probability</b>, the <b>optimization of bevel angles (15°–25°)</b>, and the <b>energy efficiency of root guidance</b>.
+  </p>
+  <p>
+    Ultimately, VCG demonstrates how geometry can serve as a living instrument, enabling growers to achieve consistent outcomes and minimize risk. The executive summary provides a client checklist, ensuring practical applicability and clarity for decision‑makers.
+  </p>
+</div>
+
+<!-- Table of Contents -->
+<nav id="toc">
+  <h1>Table of Contents</h1>
+  <ul>
+    <li><a href="#ch1">Chapter 1: Sidewall Profile</a></li>
+    <li><a href="#ch2">Chapter 2: Active vs Guiding</a></li>
+    <li><a href="#ch3">Chapter 3: Hydrothermal Spike Anatomy</a></li>
+    <li><a href="#ch4">Chapter 4: Thermal Field</a></li>
+    <li><a href="#ch5">Chapter 5: Drying Probability</a></li>
+    <li><a href="#ch6">Chapter 6: Comparative Analysis</a></li>
+    <li><a href="#ch7">Chapter 7: Executive Summary</a></li>
+    <li><a href="#ch8">Chapter 8: Bevel Angle Analysis</a></li>
+    <li><a href="#ch9">Chapter 9: Surface Area vs Guide Angle</a></li>
+    <li><a href="#ch10">Chapter 10: Conclusion</a></li>
+  </ul>
+</nav><!-- Chapter 1 -->
+<div class="chapter" id="ch1">
+  <h2>Sidewall Profile</h2>
+  <p>Analysis of the container sidewall geometry and Venturi zone.</p>
+  <div class="formula">
+    
+
+\[ A_{side} = 2 \pi r h \]
+
+
+  </div>
+  <div class="diagram">[Diagram: Venturi zone and sidewall curvature]</div>
+  <div class="datatable">
+    <table>
+      <caption>Geometric Parameters of Sidewall</caption>
+      <thead>
+        <tr><th>Parameter</th><th>Value</th><th>Unit</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Radius (r)</td><td>10</td><td>cm</td></tr>
+        <tr><td>Height (h)</td><td>25</td><td>cm</td></tr>
+        <tr><td>Venturi angle</td><td>20</td><td>degrees</td></tr>
+        <tr><td>Sidewall thickness</td><td>0.5</td><td>cm</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Chapter 2 -->
+<div class="chapter" id="ch2">
+  <h2>Active vs Guiding</h2>
+  <p>Comparison of active and guiding sidewall profiles.</p>
+  <div class="formula">
+    
+
+\[ E = \frac{F_{active}}{F_{guiding}} \]
+
+
+  </div>
+  <div class="diagram">[Diagram: Active vs Guiding profile airflow]</div>
+  <div class="datatable">
+    <table>
+      <caption>Comparison of Active vs Guiding Profiles</caption>
+      <thead>
+        <tr><th>Criterion</th><th>Active Profile</th><th>Guiding Profile</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Airflow intensity</td><td>High, turbulent</td><td>Moderate, directed</td></tr>
+        <tr><td>Root guidance</td><td>Less predictable</td><td>Highly predictable</td></tr>
+        <tr><td>Drying speed</td><td>Fast but uneven</td><td>Balanced and controlled</td></tr>
+        <tr><td>Energy efficiency</td><td>Lower due to turbulence</td><td>Higher due to guided flow</td></tr>
+        <tr><td>Risk of apex misgrowth</td><td>Elevated</td><td>Minimal</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Chapter 3 -->
+<div class="chapter" id="ch3">
+  <h2>Hydrothermal Spike Anatomy</h2>
+  <p>Structural and functional analysis of the hydrothermal spike.</p>
+  <div class="formula">
+    
+
+\[ Q_{spike} = h \cdot A_{spike} \cdot (T_{spike} - T_{ambient}) \]
+
+
+  </div>
+  <div class="diagram">[Diagram: Hydrothermal spike anatomy and zones]</div>
+  <div class="datatable">
+    <table>
+      <caption>Hydrothermal Spike Parameters</caption>
+      <thead>
+        <tr><th>Parameter</th><th>Value</th><th>Unit</th></tr>
+      </thead>
+      <tbody>  
+        <tr><td>Spike length</td><td>12</td><td>cm</td></tr>
+        <tr><td>Spike diameter</td><td>2.5</td><td>cm</td></tr>
+        <tr><td>Surface area (A_spike)</td><td>94</td><td>cm²</td></tr>
+        <tr><td>Temperature at tip (T_spike)</td><td>28</td><td>°C</td></tr>
+        <tr><td>Ambient temperature (T_ambient)</td><td>22</td><td>°C</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Chapter 4 -->
+<div class="chapter" id="ch4">
+  <h2>Thermal Field</h2>
+  <p>Temperature distribution across the container zones.</p>
+  <div class="formula">
+    
+
+\[ q = -k \cdot \nabla T \cdot V \]
+
+
+  </div>
+  <div class="diagram">[Graph: Temperature distribution across sidewall and spike zones]</div>
+  <div class="datatable">
+    <table>
+      <caption>Temperature Distribution by Zone</caption>
+      <thead>
+        <tr><th>Zone</th><th>Position</th><th>Temperature (°C)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Base</td><td>Lower sidewall</td><td>22</td></tr>
+        <tr><td>Mid</td><td>Venturi zone</td><td>25</td></tr>
+        <tr><td>Spike</td><td>Hydrothermal apex</td><td>28</td></tr>
+        <tr><td>Outer</td><td>External surface</td><td>20</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Chapter 5 -->
+<div class="chapter" id="ch5">
+  <h2>Drying Probability</h2>
+  <p>Calculation of drying time and apex emergence probability.</p>
+  <div class="formula">
+    
+
+\[ P_{apex} = 1 - e^{-\lambda \cdot t} \]
+
+
+  </div>
+  <div class="diagram">[Graph: Apex emergence probability vs Drying time]</div>
+  <div class="datatable">
+    <table>
+      <caption>Calculated Drying Probability Values</caption>
+      <thead>
+        <tr><th>Time (hours)</th><th>Drying Rate Constant (λ)</th><th>Probability (P)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>4</td><td>0.05</td><td>0.18</td></tr>
+        <tr><td>8</td><td>0.05</td><td>0.33</td></tr>
+        <tr><td>12</td><td>0.05</td><td>0.45</td></tr>
+        <tr><td>16</td><td>0.05</td><td>0.55</td></tr>
+        <tr><td>24</td><td>0.05</td><td>0.70</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Chapter 6 -->
+<div class="chapter" id="ch6">
+  <h2>Comparative Analysis</h2>
+  <p>Comparison of Air‑Pot® 7 with a standard container.</p>
+  <div class="formula">
+    
+
+\[ \eta = \frac{Q_{VCG}}{Q_{Standard}} \]
+
+
+  </div>
+  <div class="diagram">[Diagram: Root growth patterns Air‑Pot® 7 vs Standard]</div>
+  <div class="datatable">
+    <table>
+      <caption>Comparative Parameters: Air‑Pot® 7 vs Standard Container</caption>
+      <thead>
+        <tr><th>Criterion</th><th>Air‑Pot® 7 with VCG</th><th>Standard Container</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Air‑pruning predictability</td><td>High, controlled</td><td>Random, uncontrolled</td></tr>
+        <tr><td>Drying speed</td><td>Optimized (15°–25° bevel)</td><td>Variable, uncontrolled</td></tr>
+        <tr><td>Energy efficiency</td><td>Balanced, reduced thermal loss</td><td>Low, inefficient</td></tr>
+        <tr><td>Root architecture</td><td>Predictable, guided apex emergence</td><td>Chaotic, uneven growth</td></tr>
+        <tr><td>Client risk</td><td>Minimal</td><td>High</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Chapter 7 -->
+<div class="chapter" id="ch7">
+  <h2>Executive Summary</h2>
+  <p>VCG Client Checklist.</p>
+  <div class="formula">
+    
+
+\[ \Phi = \sum (Predictability + Efficiency - Risk) \]
+
+
+  </div>
+  <div class="diagram">[Diagram: Executive summary flowchart]</div>
+  <div class="datatable">
+    <table>
+      <caption>VCG Client Checklist</caption>
+      <thead>
+        <tr><th>Criterion</th><th>Air‑Pot® 7 with VCG</th><th>Standard Container</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Predictability of air‑pruning</td><td>High</td><td>Random</td></tr>
+        <tr><td>Drying speed</td><td>Optimized (15°–25°)</td><td>Uncontrolled</td></tr>
+        <tr><td>Energy efficiency</td><td>Balanced</td><td>Low</td></tr>
+        <tr><td>Client risk</td><td>Minimal</td><td>High</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Chapter 8 -->
+<div class="chapter" id="ch8">
+  <h2>Bevel Angle Analysis</h2>
+  <p>Effect of bevel angle on drying speed and time.</p>
+  <div class="formula">
+    
+
+\[ t_{dry} = \frac{C}{\theta} \]
+
+
+  </div>
+  <div class="diagram">[Graph: Drying time vs Bevel angle]</div>
+  <div class="datatable">
+    <table>
+      <caption>Drying Time at Different Bevel Angles</caption>
+      <thead>
+        <tr><th>Bevel Angle (°)</th><th>Drying Time (hours)</th><th>Drying Efficiency</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10°</td><td>16</td><td>Low</td></tr>
+        <tr><td>15°</td><td>12</td><td>Optimal</td></tr>
+        <tr><td>20°</td><td>9</td><td>Optimal</td></tr>
+        <tr><td>25°</td><td>8</td><td>Optimal</td></tr>
+        <tr><td>30°</td><td>7</td><td>Declining stability</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Chapter 9 -->
+<div class="chapter" id="ch9">
+  <h2>Surface Area vs Guide Angle</h2>
+  <p>Analysis of the relationship between surface area and guide angle. The optimal range is 15°–25°.</p>
+  <div class="formula">
+    
+
+\[ S(\theta) = \pi r^2 \cdot \cos(\theta) \]
+
+
+  </div>
+  <div class="diagram">[Graph: Surface Area vs Guide Angle]</div>
+  <div class="datatable">
+    <table>
+      <caption>Optimal Guide Angle Range</caption>
+      <thead>
+        <tr><th>Guide Angle (°)</th><th>Surface Area (cm²)</th><th>Drying Efficiency</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10°</td><td>95</td><td>Low</td></tr>
+        <tr><td>15°</td><td>120</td><td>Optimal</td></tr>
+        <tr><td>20°</td><td>135</td><td>Optimal</td></tr>
+        <tr><td>25°</td><td>150</td><td>Optimal</td></tr>
+        <tr><td>30°</td><td>160</td><td>Declining</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Chapter 10 -->
+<div class="chapter" id="ch10">
+  <h2>Conclusion</h2>
+  <p>Summary of key findings and final thesis.</p>
+  <div class="formula">
+    
+
+\[ \Psi = \frac{P_{apex} \cdot E_{dry}}{R_{risk}} \]
+
+
+  </div>
+  <div class="diagram">[Diagram: Integration of geometry, thermal field, and root architecture]</div>
+  <div class="datatable">
+    <table>
+      <caption>Key Thesis Summary</caption>
+      <thead>
+        <tr><th>Aspect</th><th>VCG Contribution</th><th>Outcome</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Geometry</td><td>Venturi sidewall & bevel angles</td><td>Predictable root guidance</td></tr>
+        <tr><td>Thermal field</td><td>Controlled heat distribution</td><td>Optimized drying probability</td></tr>
+        <tr><td>Hydrothermal spike</td><td>Directed apex emergence</td><td>Consistent architecture</td></tr>
+        <tr><td>Comparative analysis</td><td>Air‑Pot® 7 vs standard container</td><td>Reduced risk, higher efficiency</td></tr>
+        <tr><td>Final thesis</td><td>VCG transforms randomness into predictability</td><td>Reliable cultivation instrument</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>  
+
+  <!-- Bridge to Page 13 -->
+  <p style="text-align:center; margin-top:40px; font-size:15px; color:#3e5d79;">
+    To deepen your understanding, continue to <b>Page 13</b> — Quick Field Check & The 50% Rule.
+  </p>
+</div>
+
+<!-- Page 13 -->
+<section class="page" id="p13" style="margin-top:60px;">
+  <header class="masthead">
+    <h1>Page 13: Quick Field Check & The 50% Rule</h1>
+    <p>UNITED ROOT • Venturi Carpet Technology (VCG)</p>
+  </header>
+
+  <div class="card">
+    <h2>1. Quick Field Check</h2>
+    <ul>
+      <li><b>Touch test:</b> If the cone wall feels cool/damp beyond mid height, reduce fill next cycle.</li>
+      <li><b>Visual cue:</b> If white, bushy laterals are forming inside the cone volume, you are in the optimal pruning band.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>2. How to Fill the Cone — The 50% Rule</h2>
+    <p><b>Air, Angle, Root — One System.</b>  
+       The cone guides roots toward the air hole and triggers natural pruning.  
+       How you fill it with compost determines where and how pruning happens.</p>
+    <ul>
+      <li><b>Geometry effect:</b> Flatter bevel increases fill shelf → raises ℓ<sub>f</sub>, porous thickness, and R<sub>p</sub>.</li>
+      <li><b>Venturi acceleration:</b> Narrowing accelerates airflow → increases k<sub>g</sub>, D<sub>a</sub><sup>eff</sup> ∝ u<sub>eff</sub>, via Sherwood number:  
+        <div class="eq">Sh ∼ a · Re^m · Sc^(1/3), &nbsp; u<sub>eff</sub> ≈ u₀ / cosθ</div></li>
+      <li><b>Net effect:</b>
+        <ul>
+          <li>Horizontal segments ease filling but increase R<sub>p</sub>.</li>
+          <li>Venturi acceleration reduces R<sub>a</sub>, R<sub>h</sub>.</li>
+          <li>Balance determines pruning location s*:
+            <ul>
+              <li>If R<sub>p</sub> dominates → pruning shifts outward (later, softer).</li>
+              <li>If R<sub>a</sub>, R<sub>h</sub> reduced strongly → pruning shifts inward (earlier, sharper).</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p>✨ The new bevel is not just a usability feature — it is a regulator of pruning dynamics.</p>
+  </div>
+
+  <div class="card">
+    <h2>3. Key Equations</h2>
+    <div class="eq">A<sub>fill</sub> ∝ tan(θ)</div>
+    <div class="eq">R<sub>p</sub> ∝ 1 / A<sub>fill</sub></div>
+    <div class="eq">s* = (RH(0) − RH*) · D · A / J</div>
+  </div>
+
+  <div class="card params">
+    <h2>Parameters</h2>
+    <table>
+      <thead><tr><th>Symbol</th><th>Description</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>θ</td><td>Bevel angle</td><td>20°</td></tr>
+        <tr><td>RH(0)</td><td>Soil-side relative humidity</td><td>100%</td></tr>
+        <tr><td>RH*</td><td>Pruning threshold</td><td>70%</td></tr>
+        <tr><td>D</td><td>Diffusivity in air</td><td>2.5×10⁻⁵ m²/s</td></tr>
+        <tr><td>A</td><td>Hole area</td><td>5.03×10⁻⁵ m²</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Invitation to Interactive Slide -->
+  <div style="text-align:center; margin-top:30px;">
+    <a href="https://your-cloud-link-here"
+       style="background:#109c5d; color:#fff; padding:12px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; box-shadow:0 3px 8px rgba(0,0,0,0.2);">
+       🌿 See the 50% Rule in Action
+    </a>
+    <p style="margin-top:12px; font-size:14px; color:#3e5d79;">
+      Explore the interactive demo and watch how <b>geometry and airflow</b> reshape pruning dynamics.  
+      Adjust fill levels (50%, 75%, 100%) and experience the difference live.
+    </p>
+  </div>
+
+  <footer class="footer">📌 UNITED ROOT — Venturi Carpet Technology. Page 13.</footer>
+</section>
